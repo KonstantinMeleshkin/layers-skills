@@ -1,0 +1,11 @@
+{
+  "name": "layers",
+  "version": "0.1.0",
+  "description": "AI-facilitated design workshops across the Layers of Product Design framework — from observed behaviour through to surface. Each skill guides a structured session at one layer, producing decisions, diagrams, and captured outputs.",
+  "author": {
+    "name": "Jamie Mill",
+    "url": "https://jamiemill.com"
+  },
+  "keywords": ["design", "product-design", "ux", "design-thinking", "user-research", "product-strategy"],
+  "skills": "./skills"
+}
