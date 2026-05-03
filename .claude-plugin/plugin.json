@@ -6,6 +6,12 @@
     "name": "Jamie Mill",
     "url": "https://jamiemill.com"
   },
-  "keywords": ["design", "product-design", "ux", "design-thinking", "user-research", "product-strategy"],
-  "skills": "./skills"
+  "keywords": [
+    "design",
+    "product-design",
+    "ux",
+    "design-thinking",
+    "user-research",
+    "product-strategy"
+  ]
 }
