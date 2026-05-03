@@ -1,11 +1,11 @@
 ---
-name: orient
+name: layers-orient
 description: Diagnostic audit across all seven layers — identifies the bottleneck layer and recommends where to focus
 ---
 
-# /layers:orient
+# /layers-orient
 
-*Assumes `/layers:intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded for framework context.*
 
 Orient is a rapid diagnostic. It maps the current state of decisions across all seven layers, identifies the bottleneck — the lowest layer with unresolved or risky decisions — and recommends where to focus next.
 
@@ -27,7 +27,7 @@ It is not a deep dive into any layer. That's what the individual layer skills ar
 
 *Describe your design situation and what prompted you to pick it up, or say "let's orient" to start.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers:intro` for options)
+Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
 
 Then ask:
 1. What product or feature are you working on?
@@ -98,11 +98,11 @@ If the designer has a deadline or constraint that changes the calculus, acknowle
 
 Recommend a specific skill to run next and why:
 
-- Conceptual model → `/layers:conceptual-model`
-- Product strategy → `/layers:product-strategy`
-- User needs → `/layers:user-needs`
-- Domain → `/layers:domain`
-- Interaction structure → `/layers:interaction-flow`
-- Observed behaviour → `/layers:observed-behaviour`
+- Conceptual model → `/layers-conceptual-model`
+- Product strategy → `/layers-product-strategy`
+- User needs → `/layers-user-needs`
+- Domain → `/layers-domain`
+- Interaction structure → `/layers-interaction-flow`
+- Observed behaviour → `/layers-observed-behaviour`
 
 Close with: *"Want to run [skill] now, or is there something in this picture to push back on first?"*

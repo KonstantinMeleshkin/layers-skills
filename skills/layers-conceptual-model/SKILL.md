@@ -1,11 +1,11 @@
 ---
-name: conceptual-model
+name: layers-conceptual-model
 description: Defines the product's objects, relationships, states, and vocabulary independently of any interface — the most load-bearing layer
 ---
 
-# /layers:conceptual-model
+# /layers-conceptual-model
 
-*Assumes `/layers:intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded for framework context.*
 
 The conceptual model is the most neglected load-bearing layer. It defines the objects the product recognises, their relationships, what states they can be in, and the vocabulary used for everything. It lives in the solution space: it is not a capture of users' existing mental models (which are contradictory and messy — that's the domain layer's job), but a deliberate design decision about how the product will model its domain.
 
@@ -50,7 +50,7 @@ Default: **noun foraging and object definition**.
 
 *Tell me what product or feature you're defining a model for, or say "guide me" to start noun foraging and object definition.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers:intro` for options)
+Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
 
 Check what the designer has from the problem space — domain notes, research, user needs. If nothing: proceed but flag that a model built without domain knowledge often reflects assumptions more than users' reality.
 
@@ -117,7 +117,7 @@ For each object where lifecycle or status matters: *"What states can a [Object] 
 
 Generate a state diagram: states as nodes, transitions as labelled arrows, with a clear start state. Top-to-bottom or left-to-right depending on the number of states. In Mermaid: `stateDiagram-v2`.
 
-Also probe temporal decisions (from `/layers:intro`): intermediate action states, read model lag, relationship temporality, deletion semantics, history. For implementation-entangled questions, don't force a premature answer — articulate the user experience requirement and flag as a named open question for an engineering conversation.
+Also probe temporal decisions (from `/layers-intro`): intermediate action states, read model lag, relationship temporality, deletion semantics, history. For implementation-entangled questions, don't force a premature answer — articulate the user experience requirement and flag as a named open question for an engineering conversation.
 
 **Phase 6 — Ubiquitous language**
 
@@ -157,6 +157,6 @@ Produce:
 4. **Ubiquitous language** — chosen nouns and verbs with resolved conflicts and decisions
 5. **Open questions** — deferred decisions, objects that felt thin, anything flagged but unresolved
 
-Close with: *"The conceptual model defines what exists in this product. Next: design how users interact with those objects. Run `/layers:interaction-flow`."*
+Close with: *"The conceptual model defines what exists in this product. Next: design how users interact with those objects. Run `/layers-interaction-flow`."*
 
 If domain work hasn't been done: *"This model was built without domain research — it's a hypothesis. Plan to revisit it once you have evidence."*

@@ -1,11 +1,11 @@
 ---
-name: product-strategy
+name: layers-product-strategy
 description: Connects user opportunities to business outcomes and solution bets — produces a strategy tree and prioritised experiments
 ---
 
-# /layers:product-strategy
+# /layers-product-strategy
 
-*Assumes `/layers:intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded for framework context.*
 
 Strategy is the first layer of the solution space — the point where problem space understanding converts into deliberate decisions about scope and direction. It is about choices: which user needs to serve, and which business outcomes to target.
 
@@ -46,7 +46,7 @@ Default: **Opportunity Solution Trees**.
 
 *Tell me what business outcome you're working toward and what user needs you have, or say "guide me" to start an OST session.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers:intro` for options)
+Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
 
 Ask: *"Do you have job stories or user needs to work from, or are we building strategy from an informal understanding of the user?"* Note explicitly that strategy built without grounded user needs is a bet on assumptions.
 
@@ -111,6 +111,6 @@ Produce:
 4. **Deferred bets** — other bets worth returning to
 5. **Open questions** — assumptions untested, needs not yet grounded in evidence
 
-Close with: *"The solution bets chosen here define the scope of what needs to be designed. Next: define the conceptual model — the objects, relationships, and vocabulary those solutions will work with. Run `/layers:conceptual-model`."*
+Close with: *"The solution bets chosen here define the scope of what needs to be designed. Next: define the conceptual model — the objects, relationships, and vocabulary those solutions will work with. Run `/layers-conceptual-model`."*
 
 If user needs were weak or assumed: *"This strategy is built on assumed needs. Plan to validate them before committing to build."*

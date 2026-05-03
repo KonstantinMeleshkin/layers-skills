@@ -1,11 +1,11 @@
 ---
-name: domain
+name: layers-domain
 description: Maps domain concepts, terminology conflicts, and bounded contexts — produces a noun harvest for the conceptual model layer
 ---
 
-# /layers:domain
+# /layers-domain
 
-*Assumes `/layers:intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded for framework context.*
 
 The domain layer maps what exists in the real world independently of any product: the concepts, terminology, processes, relationships, and mental models users bring with them. This is observation, not design.
 
@@ -43,7 +43,7 @@ Default: **concept mapping and terminology audit**.
 
 *Tell me what domain you're mapping and what you know about it, or say "guide me" to start a structured session.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers:intro` for options)
+Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
 
 Ask: *"Are you working from research and domain expertise, or from what the team currently believes about the domain?"* If mapping beliefs, flag throughout that what's being captured is the team's model, not necessarily how users experience the domain.
 
@@ -115,4 +115,4 @@ Produce:
 3. **Domain events** — if explored, key events timeline
 4. **Noun harvest** — complete candidate list
 
-Close with: *"This domain map is raw material for your conceptual model. Run `/layers:conceptual-model` to define objects, relationships, and vocabulary — the noun harvest is your starting point."*
+Close with: *"This domain map is raw material for your conceptual model. Run `/layers-conceptual-model` to define objects, relationships, and vocabulary — the noun harvest is your starting point."*

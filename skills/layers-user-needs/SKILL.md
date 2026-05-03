@@ -1,11 +1,11 @@
 ---
-name: user-needs
+name: layers-user-needs
 description: Elicits and prioritises user needs (needs, pains, desires) as job stories — produces opportunities ready for product strategy
 ---
 
-# /layers:user-needs
+# /layers-user-needs
 
-*Assumes `/layers:intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded for framework context.*
 
 User needs are what we think users are trying to achieve, and why — an interpretation built on observed behaviour and domain knowledge, not a direct capture of reality. This layer sits between the messy raw material of observation and the deliberate decisions of the solution space.
 
@@ -49,7 +49,7 @@ Emotional and social needs are chronically under-articulated in briefs and resea
 
 *Tell me who your users are and what you're working on, or say "guide me" to start a structured session.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers:intro` for options)
+Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
 
 Ask: *"What's the source of the user needs we're working with — user research, domain knowledge, team assumptions, or a mix?"* If working from assumptions, mark them clearly throughout and plan to validate.
 
@@ -93,7 +93,7 @@ Review all needs together. For each:
 
 Rough ordering: highest importance × most poorly currently served. A need that matters a lot and is badly served is a high-value opportunity. A need that matters a lot but is already well served is not.
 
-Don't over-engineer this. Precise prioritisation is strategy work at `/layers:product-strategy`. A rough ranking is enough here.
+Don't over-engineer this. Precise prioritisation is strategy work at `/layers-product-strategy`. A rough ranking is enough here.
 
 ---
 
@@ -105,6 +105,6 @@ Produce:
 3. **Gaps** — needs probably real but not yet grounded; research questions to answer
 4. **Contradictions** — if different user types have conflicting needs, name them explicitly
 
-Close with: *"These needs are the opportunities for your product strategy. Run `/layers:product-strategy` to build a strategy tree connecting them to business outcomes and solution bets."*
+Close with: *"These needs are the opportunities for your product strategy. Run `/layers-product-strategy` to build a strategy tree connecting them to business outcomes and solution bets."*
 
-If needs are mostly assumed: *"Several of these are marked as assumed. Before building strategy on them, consider running `/layers:observed-behaviour` to gather evidence."*
+If needs are mostly assumed: *"Several of these are marked as assumed. Before building strategy on them, consider running `/layers-observed-behaviour` to gather evidence."*

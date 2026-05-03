@@ -1,11 +1,11 @@
 ---
-name: interaction-flow
+name: layers-interaction-flow
 description: Maps interaction structure and flow — produces breadboard notation with edge cases, failure paths, and open decisions
 ---
 
-# /layers:interaction-flow
+# /layers-interaction-flow
 
-*Assumes `/layers:intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded for framework context.*
 
 The interaction structure and flow layer defines how a person interacts with the product: the places they navigate, the affordances available, the content presented, and the flow between states. It sits above the conceptual model (which defines *what exists*) and below the surface (which defines *how it looks*).
 
@@ -50,7 +50,7 @@ Place name
 
 *Tell me which user journey you're designing for, or say "guide me" to start a breadboarding session.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers:intro` for options)
+Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
 
 Check the layer below: *"Do you have a conceptual model — defined objects, relationships, and vocabulary — to work from? Or are we designing the flow without a settled model beneath it?"* Flows built before the conceptual model is stable often need to be revisited.
 

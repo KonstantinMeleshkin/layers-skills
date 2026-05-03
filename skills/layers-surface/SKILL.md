@@ -1,11 +1,11 @@
 ---
-name: surface
+name: layers-surface
 description: Audits existing surface against lower-layer decisions and produces a surface decision inventory — vocabulary, object consistency, completeness, feedback, hierarchy, accessibility
 ---
 
-# /layers:surface
+# /layers-surface
 
-*Assumes `/layers:intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded for framework context.*
 
 The surface layer is where everything decided in the layers below becomes something a person actually encounters: words, sounds, visuals, physical affordances, motion, feedback. It is the most medium-specific layer, but the most important decisions to make first are universal — they apply regardless of whether the surface is a screen, voice interface, physical device, or service touchpoint.
 
@@ -49,7 +49,7 @@ This skill has two parts. Tell me what you need:
 
 *Describe what you have, or say "guide me" to start.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers:intro` for options)
+Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
 
 Ask:
 1. What product or feature are we working on?
@@ -90,7 +90,7 @@ Take the breadboard. For each place and affordance:
 - Is every affordance from the breadboard present in the surface?
 - Is there surface content with no corresponding breadboard element?
 
-Additions that weren't in the breadboard are often interaction-layer decisions that slipped through — flag them and recommend revisiting `/layers:interaction-flow`.
+Additions that weren't in the breadboard are often interaction-layer decisions that slipped through — flag them and recommend revisiting `/layers-interaction-flow`.
 
 **Phase 5 — Emotional register**
 

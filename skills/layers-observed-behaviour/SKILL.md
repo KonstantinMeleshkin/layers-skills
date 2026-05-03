@@ -1,11 +1,11 @@
 ---
-name: observed-behaviour
+name: layers-observed-behaviour
 description: User research planning and synthesis at the observed behaviour layer — produces candidate job stories with confidence ratings
 ---
 
-# /layers:observed-behaviour
+# /layers-observed-behaviour
 
-*Assumes `/layers:intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded for framework context.*
 
 The observed behaviour layer is the closest we can get to reality. It is raw material — what users actually do, not what we think they do or wish they would do. Everything above it is interpretation; this layer is the source.
 
@@ -45,7 +45,7 @@ If they have partial research, start in Synthesise mode with what exists, then s
 
 *Tell me what you're working on — what question you most need to answer about your users — or say "plan" or "synthesise" to start a guided session.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers:intro` for options)
+Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
 
 Ask: *"Do you have existing research — interviews, session recordings, support tickets, analytics — or do we need to plan research from scratch?"* State the mode clearly once you know.
 
@@ -130,4 +130,4 @@ Produce:
 3. **Candidate job stories** — with confidence ratings
 4. **Research gaps** — questions still unanswered
 
-Close with: *"These job stories are ready to refine at the user needs layer. Run `/layers:user-needs` to work through them."*
+Close with: *"These job stories are ready to refine at the user needs layer. Run `/layers-user-needs` to work through them."*
