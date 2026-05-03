@@ -4,10 +4,11 @@
     "name": "Jamie Mill",
     "url": "https://jamiemill.com"
   },
+  "description": "Marketplace to distribute Layers Skills from Jamie Mill.",
   "plugins": [
     {
       "name": "layers",
-      "source": ".",
+      "source": "./",
       "description": "AI skills for product design across the seven layers — surface, interaction flow, conceptual model, product strategy, user needs, domain, and observed behaviour."
     }
   ]
