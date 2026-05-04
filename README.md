@@ -51,3 +51,9 @@ Layers have *logical dependency* — lower layers are foundations for upper ones
 **Reality** → **Problem space** (observed behaviour → domain → user needs) → **Solution space** (strategy → conceptual model → interaction structure → surface) → **Reality**
 
 The most neglected layer is almost always the conceptual model: the objects, relationships, states, and vocabulary the product works with. If you're unsure where to start, run `/layers-orient`.
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE). Fork it, adapt it, ship it. Attribution is appreciated but not required.
