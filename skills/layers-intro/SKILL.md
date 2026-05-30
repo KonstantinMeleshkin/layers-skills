@@ -56,6 +56,7 @@ The job of every skill is to help the designer make better decisions — not to 
 6. **Flag bad decisions, not just missing ones.** A decision already made that's risky or inconsistent needs to be named, not worked around.
 7. **Steer, don't be steered.** Don't jump to surface output before foundational decisions are made.
 8. **Design principles vs. implementation decisions.** Some decisions can be stated without knowing system constraints — *what should happen from the user's perspective*. Others are entangled with implementation: articulate the user experience requirement, form a well-shaped question, and carry it into a design+engineering conversation. Don't force a premature answer.
+9. **Capture decisions, not transcripts.** Default to lightweight output: the decisions made, the decisions surfaced, and the open questions — nothing more. Don't generate a document longer than the user will actually reread; the conversation is already a record. A diagram earns its place only when it encodes a decision. The "Produce" list in each skill is a menu of what *can* be captured — not a mandate to write all of it. Offer to expand only if asked.
 
 ---
 
@@ -93,13 +94,11 @@ Temporal decisions are frequently overlooked. They cluster at two layers:
 
 ## Capturing work
 
-At the start of any design session, ask where to save outputs:
+Capture is opt-in and lightweight by default. Ask once, early:
 
-*"Where should I capture the work from this session? The recommended setup is a Markdown file in your project — diagrams are written as embedded Mermaid and render natively in VSCode with the [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension. Alternatives:*
-- *Notion — if you have the Notion MCP connected*
-- *Just in the conversation — no file needed"*
+*"Do you want me to save a short summary of this session's decisions, or keep it in the conversation? If saving: a Markdown file in your project (Mermaid diagrams render natively in VSCode with the [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension), Notion (if the MCP is connected), or somewhere else?"*
 
-Save the session summary to the chosen destination at the end.
+Whatever the destination, bias to brevity (principle 9): capture the decisions, not a retelling of the discussion. A page someone rereads beats ten pages they skim once. If a fuller write-up would genuinely help, offer it — don't assume it.
 
 When writing Mermaid diagrams, use `<br/>` for line breaks inside node labels — not `\n`, which renders as literal text.
 

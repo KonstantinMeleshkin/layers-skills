@@ -114,7 +114,7 @@ Group observations by theme:
 
 From the patterns: *When [situation], I want to [motivation], so I can [expected outcome].*
 
-For each: is the "When" specific enough? Is the "I want to" a motivation or a solution? Mark confidence: observed / inferred / assumed.
+For each: is the "When" specific enough? Is the "I want to" a motivation or a solution? Mark confidence: observed / inferred / assumed. If you mark something **observed**, the verbatim that supports it should be quotable in the same note — an observed claim with no quotable evidence is really inferred.
 
 **Phase 5 — Flag research gaps**
 

@@ -85,9 +85,10 @@ Probe each:
 
 Review all needs together. For each:
 1. **Need or solution?** "When I need a report, I want to export to CSV" is a solution. Push to the underlying need.
-2. **Specific enough to design from?** A need so broad that any feature could serve it is not useful.
-3. **Grounded?** Mark: observed / inferred / assumed.
-4. **Important?** How frequently does this situation arise? How painful is it unmet?
+2. **Mechanism stripped?** If the "When" clause references your specific solution (your dashboard, your CSM, your weekly email), you're describing the current system, not the need. Re-state it independent of who or what serves it: *what's true about the user at the moment they need this?* The need follows from the state, not the mechanism.
+3. **Specific enough to design from?** A need so broad that any feature could serve it is not useful.
+4. **Grounded?** Mark: observed / inferred / assumed.
+5. **Important?** How frequently does this situation arise? How painful is it unmet?
 
 **Phase 5 — Prioritise**
 

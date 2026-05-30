@@ -35,6 +35,7 @@ Default: **Opportunity Solution Trees**.
 
 **Quality signals — what good looks like:**
 - The desired outcome is measurable, meaningful, and bounded — not "grow the product"
+- Every opportunity is a customer need/pain/desire anchored to a specific journey moment — not a business metric or a solution in disguise (apply the flip test)
 - Every opportunity in the tree connects to that outcome; unconnected needs aren't in this tree
 - Every solution bet has a named assumption — what would have to be true for this to work?
 - Every prioritised bet has an experiment that's the smallest possible way to validate the core assumption
@@ -66,11 +67,15 @@ A good outcome is measurable, meaningful, and bounded. If the team has multiple 
 
 **Phase 2 — Map the opportunities**
 
-Opportunities are user needs, pains, and desires that connect to the desired outcome. Not every user need belongs in this tree — only those where serving the need moves the business outcome.
+Opportunities are customer **needs, pain points, and desires**, written from the customer's perspective in the first person — "I don't know which streaming service has this movie", not a job story and not a feature. Three disciplines keep them honest (Teresa Torres):
 
-Express each as a job story. Then ask: *"If we served this need well, would it move the desired outcome? How?"*
+1. **First-person, problem space.** Phrase as the customer would. Apply the **flip test**: if you can restate the opportunity as a feature, it's a solution in disguise — "order takeout" is a solution; "I don't have time to cook dinner" is the opportunity.
+2. **Specific, not generic.** "I can't find something to watch" is too broad to solve. "I like intriguing sci-fi but not dumb action films, and I can't tell if I'll like this movie" is actionable.
+3. **Grounded in a moment.** A well-framed opportunity happens in a specific moment, a specific context, for a specific customer. **Group the opportunities by journey moment** — this is the forcing function: it exposes vague opportunities and surfaces moments you've left unaddressed.
 
-Build from broad to specific — specific opportunities are closer to actionable. Ask whether there are sub-opportunities within any given opportunity.
+Not every customer need belongs in this tree — only those where serving it moves the business outcome. For each, ask: *"If we served this well, would it move the desired outcome? How?"*
+
+Build from broad to specific within each journey moment — sub-opportunities are closer to actionable.
 
 **Phase 3 — Generate solution bets**
 
@@ -86,7 +91,7 @@ For the most promising bets: what's the cheapest way to find out if the bet is r
 
 **Phase 5 — Build the strategy diagram**
 
-Generate a strategy tree: desired outcome at the top, branching downward through opportunities, solution bets, and experiments. Top-to-bottom orientation — the hierarchy reads as dependency, not sequence. In Mermaid: `graph TD`.
+Generate a strategy tree: desired outcome at the top, branching downward through opportunities (grouped by journey moment), solution bets, and experiments. Top-to-bottom orientation — the hierarchy reads as dependency, not sequence. In Mermaid: `graph TD`.
 
 Ask: *"Does this tree reflect your current thinking? Branches missing, connections wrong?"*
 
@@ -106,7 +111,7 @@ Start with high opportunity size, manageable assumption risk, and a clear experi
 
 Produce:
 1. **Desired outcome**
-2. **Opportunity tree** — Mermaid diagram
+2. **Opportunity tree** — Mermaid diagram, opportunities grouped by journey moment
 3. **Prioritised solution bets** — top 2–3, with the experiment for each
 4. **Deferred bets** — other bets worth returning to
 5. **Open questions** — assumptions untested, needs not yet grounded in evidence

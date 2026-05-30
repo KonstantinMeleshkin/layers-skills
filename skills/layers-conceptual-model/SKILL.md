@@ -75,9 +75,10 @@ If redesigning: *"Describe the current model, even informally — what implicit 
 Sort into:
 - **Objects** — things that persist, have their own attributes, and matter to the user in their own right
 - **Attributes** — properties that describe an object, not objects themselves
+- **Instances / values** — specific cases of an object type (note the type)
 - **Set aside** — UI elements, vague abstractions, actions dressed as nouns
 
-A true object must be independently meaningful to the user, not just a property of something else.
+A true object is **instanceable** (you can have many), **structured** (has its own attributes), and **useful** (the user cares about it in its own right). This test catches two errors: an attribute promoted to an object, and — more often — **instances mistaken for objects**. "CAC" and "ROAS" aren't objects; they're instances of one object, Metric. When several nouns are of-a-kind, model the type as the object; the specific names are instances or values.
 
 **Phase 3 — Define each object**
 
@@ -131,7 +132,7 @@ Rejected alternatives: [other names that appeared]
 Decision: [why this term was chosen]
 ```
 
-**Verbs — action vocabulary:** Compile all action verbs across all objects. Apply two tests:
+**Verbs — the action (CTA) inventory:** Compile every action a user can take into one list across all objects — this is the product's call-to-action inventory as well as its verb vocabulary. Listing them together, rather than object by object, is what makes inconsistency visible (it's how you catch "Add" on one object and "Create" and "New" on others for the same operation). Apply two tests:
 
 *Synonym check:* Are multiple verbs being used for the same operation? "Create" and "Add" for the same action type should be consolidated. Minimising the verb vocabulary reduces what users have to learn — the same verb working identically across all objects (like cut/copy/paste) means users learn once and transfer everywhere. Every synonym is a new thing to memorise.
 

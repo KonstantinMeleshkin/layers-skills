@@ -98,9 +98,17 @@ List events on a timeline. Ask what triggers each, and what happens as a result.
 
 **Phase 7 — Noun harvest**
 
-Compile all nouns surfaced in the session. Mark each:
-- **Potential object** — independently meaningful, may have attributes and relationships
-- **Potential attribute** — a property of something else
+Compile all nouns surfaced in the session. To tell objects from the rest, apply the OOUX object test — a true object is:
+- **Instanceable** — you can have many of them
+- **Structured** — it has its own attributes
+- **Useful** — people care about it in its own right, not only as a property of something else
+
+Watch for the most common error: **instances mistaken for objects.** "CAC", "ROAS", and "LTV" are not three objects — they are instances of one object, **Metric**. When several candidate nouns are all of-a-kind, the object is the *type*; the specific names are instances or values, not separate objects and not attributes. Marking each as its own object (or as an attribute) is where noun harvests usually go wrong.
+
+Mark each noun:
+- **Object** — passes the test above
+- **Attribute** — a property of an object
+- **Instance / value** — a specific case of some object type (note the type)
 - **Unclear** — needs more thought
 
 Don't filter aggressively. The conceptual model layer does the sorting.
