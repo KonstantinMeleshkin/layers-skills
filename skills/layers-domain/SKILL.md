@@ -1,126 +1,60 @@
 ---
 name: layers-domain
-description: Maps domain concepts, terminology conflicts, and bounded contexts — produces a noun harvest for the conceptual model layer
+description: Techniques for mapping a domain's concepts, terminology conflicts, and bounded contexts — the raw material the conceptual model is built from
 ---
 
 # /layers-domain
 
-*Assumes `/layers-intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded. This skill is a library of techniques, not a script — see "How to use these skills" there.*
 
 The domain layer maps what exists in the real world independently of any product: the concepts, terminology, processes, relationships, and mental models users bring with them. This is observation, not design.
 
-**Critical distinction:** Do not resolve contradictions at this layer. Contradictory, messy, inconsistent domain language is data — it signals where different user communities have diverged, and where the product will need to make deliberate choices. Resolution happens at the conceptual model layer.
+---
 
-**Decisions this layer needs to make:**
-- What are the key concepts in this domain, and how do they relate?
-- What language do people use — and where does that language conflict or diverge?
-- Where are the natural seams where different communities use the same words differently?
-- What events and processes structure the domain's activity over time?
+## The decisions this layer makes
 
-**Methods:**
+- What the key concepts in this domain are, and how they relate
+- What language people use — and where it conflicts or diverges
+- Where the natural seams are: communities that use the same words differently
+- What events and processes structure the domain's activity over time
 
-| Method | When |
+If the domain is already well understood and uncontested, you may not need this layer — go straight to the conceptual model.
+
+---
+
+## Disciplines — what keeps domain work honest
+
+- **Don't resolve contradictions — record them.** Messy, inconsistent domain language is *data*: it signals where communities have diverged and where the product will later have to choose. Resolution belongs to the conceptual model, not here. Capture **synonyms** (same thing, different names) and **polysemy** (same name, different things in different contexts) as findings, not problems.
+- **Stay in the real world.** Push back whenever answers drift toward product or interface decisions. The question is always how the domain works *before* your product enters it.
+- **Real objects vs instances** (for the noun harvest). A true object is *instanceable* (you can have many), *structured* (has its own attributes), and *useful* (people care about it in its own right). Watch for instances mistaken for objects: "CAC", "ROAS", "LTV" aren't objects, they're instances of one object, **Metric**. Mark each noun *object / attribute / instance-or-value / unclear* — and don't filter aggressively; the conceptual model does the sorting.
+- **Beliefs vs reality.** If you're mapping what the team believes rather than researched fact, say so throughout — it's the team's model, not necessarily how users experience the domain.
+
+---
+
+## Techniques
+
+Pick what fits — concept mapping plus a terminology audit is the usual core.
+
+| Technique | Use it when |
 |---|---|
-| **Concept maps / bubble diagrams** | Domain is complex and poorly understood. Informal nodes-and-lines show how concepts relate without forcing premature structure. |
-| **Domain event storming** (Brandolini) | Domain is process-heavy. Start from significant things that happen (past tense) — events reveal natural seams. |
-| **Expert interviews** | Domain knowledge lives in people, not documents. Conversations reveal tacit knowledge and contested terminology. |
-| **Document and artefact analysis** | Domain produces artefacts (contracts, forms, invoices) that reveal natural structure and vocabulary. |
-| **Competitive analysis** | Entering an established domain. Existing products reveal how others have modelled it — and where they disagree. |
-| **Shadowing** | Domain involves workflows hard to articulate. Watching people work reveals what they actually do. |
-
-Default: **concept mapping and terminology audit**.
-
-**Quality signals — what good looks like:**
-- Contradictions are documented, not resolved
-- Synonyms are recorded (same thing, different names)
-- Polysemy is flagged (same name, different things in different contexts)
-- Bounded contexts are named where communities use language coherently within their group but inconsistently across groups
-- The noun harvest is a complete raw candidate list — not filtered, not pre-organised into objects and attributes
+| **Concept maps / bubble diagrams** (`graph TD`/`LR`) | The domain is complex and poorly understood. Informal nodes-and-lines show how concepts relate without forcing premature structure. |
+| **Terminology audit** | Capture, per concept: the names used, who uses which and when, and whether the conflict is synonymy or polysemy. Don't pick a winner. |
+| **Bounded-context mapping** | Communities share vocabulary internally but diverge across groups. Name and describe each seam — it will matter when the model is defined. |
+| **Noun harvest** | Compile every noun surfaced, marked object / attribute / instance-or-value / unclear. Raw material for the conceptual model. |
+| **Domain event storming** (Brandolini) | Process-heavy domain. Name significant events in past tense on a timeline; note triggers and results. Objects with events around them likely need state diagrams later. |
+| **Expert interviews** | Domain knowledge lives in people, not documents — surfaces tacit knowledge and contested terms. |
+| **Document & artefact analysis** | The domain produces contracts, forms, invoices that reveal natural structure and vocabulary. |
+| **Competitive analysis** | Entering an established domain — existing products reveal how others modelled it, and where they disagree. |
+| **Shadowing** | Workflows are hard to articulate; watching reveals what people actually do. |
 
 ---
 
-## Guided session
+## Working with the designer
 
-*Tell me what domain you're mapping and what you know about it, or say "guide me" to start a structured session.*
+Open by asking what domain you're mapping, who operates in it, and what they're trying to accomplish before any product exists. Then surface concepts — listen for nouns (candidate objects), verbs (processes), and the natural vocabulary, including what people *actually call* things.
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
+Offer the technique that fits the live question: a concept map when relations are unclear, a terminology audit when language is contested, event storming when the domain is process-heavy. Do the next useful thing, not all of them.
 
-Ask: *"Are you working from research and domain expertise, or from what the team currently believes about the domain?"* If mapping beliefs, flag throughout that what's being captured is the team's model, not necessarily how users experience the domain.
+Capture only the residue — the concept map if it earned its place, the documented terminology conflicts and bounded contexts, any key events, and the noun harvest. This is raw material, not a finished document.
 
----
-
-**Phase 1 — Frame the domain**
-
-1. What domain are we mapping? (The real-world context — not the product.)
-2. Who are the people operating in this domain? (Roles, user types, stakeholders.)
-3. What are they trying to accomplish, before your product enters the picture?
-
-Keep pushing back toward the real world if answers drift toward product decisions.
-
-**Phase 2 — Surface the concepts**
-
-*"Walk me through how [domain] works. What are the main things, how do they relate, what happens?"*
-
-Listen for nouns (concepts), verbs (processes), and natural vocabulary. Take notes on everything — raw, unfiltered. Then prompt:
-- *"What do people actually call these things? Multiple names for the same thing?"*
-- *"What rules exist — explicit policies or understood conventions?"*
-- *"What changes over time? What has a lifecycle?"*
-
-**Phase 3 — Concept map**
-
-Build a concept map: nodes connected by labelled relationships. Informal — no required hierarchy or orientation; follow what feels natural for the domain. In Mermaid: `graph TD` or `graph LR`.
-
-Ask: *"Does this feel like the domain, or like a database diagram? What's missing or wrong?"*
-
-**Phase 4 — Terminology audit**
-
-For each concept: does everyone in this domain use this word the same way? Are there other words for the same thing? Does this word mean something different in another context?
-
-Document:
-```
-Concept: [thing]
-Names used: [all variants]
-Context: [who uses which, and when]
-Conflict type: synonyms (same thing, different names) / polysemy (same name, different things)
-```
-
-Do not choose a winner.
-
-**Phase 5 — Bounded contexts**
-
-Look at terminology conflicts: are there communities of people who share vocabulary internally but diverge from other groups? Name and describe each. These seams will matter when the conceptual model is defined — the product will need to decide how to navigate or bridge them.
-
-**Phase 6 — Domain events (optional)**
-
-If the domain is process-heavy: *"What are the significant things that happen in this domain? Name them in past tense."*
-
-List events on a timeline. Ask what triggers each, and what happens as a result. Objects with significant events around them are likely to need state transition diagrams at the conceptual model layer.
-
-**Phase 7 — Noun harvest**
-
-Compile all nouns surfaced in the session. To tell objects from the rest, apply the OOUX object test — a true object is:
-- **Instanceable** — you can have many of them
-- **Structured** — it has its own attributes
-- **Useful** — people care about it in its own right, not only as a property of something else
-
-Watch for the most common error: **instances mistaken for objects.** "CAC", "ROAS", and "LTV" are not three objects — they are instances of one object, **Metric**. When several candidate nouns are all of-a-kind, the object is the *type*; the specific names are instances or values, not separate objects and not attributes. Marking each as its own object (or as an attribute) is where noun harvests usually go wrong.
-
-Mark each noun:
-- **Object** — passes the test above
-- **Attribute** — a property of an object
-- **Instance / value** — a specific case of some object type (note the type)
-- **Unclear** — needs more thought
-
-Don't filter aggressively. The conceptual model layer does the sorting.
-
----
-
-### Completion
-
-Produce:
-1. **Concept map** — Mermaid `graph TD`
-2. **Terminology conflicts** — documented name variants and bounded contexts
-3. **Domain events** — if explored, key events timeline
-4. **Noun harvest** — complete candidate list
-
-Close with: *"This domain map is raw material for your conceptual model. Run `/layers-conceptual-model` to define objects, relationships, and vocabulary — the noun harvest is your starting point."*
+When the domain is mapped, the noun harvest is the starting point for `/layers-conceptual-model`.

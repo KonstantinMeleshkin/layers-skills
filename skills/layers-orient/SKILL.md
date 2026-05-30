@@ -7,9 +7,9 @@ description: Diagnostic audit across all seven layers — identifies the bottlen
 
 *Assumes `/layers-intro` has been loaded for framework context.*
 
-Orient is a rapid diagnostic. It maps the current state of decisions across all seven layers, identifies the bottleneck — the lowest layer with unresolved or risky decisions — and recommends where to focus next.
+Orient is a rapid diagnostic — the front door for finding the **live decisions** the other skills then work. It maps the current state of decisions across all seven layers, identifies the bottleneck — the lowest layer with unresolved or risky decisions — and recommends where to focus next.
 
-It is not a deep dive into any layer. That's what the individual layer skills are for. Orient answers the prior question: *which layer deserves attention most urgently?*
+It is not a deep dive into any layer. That's what the individual layer skills are for. Orient answers the prior question: *which layer deserves attention most urgently?* Keep it fast and light — the output is a short audit and one recommendation, not a report.
 
 **What it assesses:**
 - Whether key decisions have been made at each layer, and how solidly
@@ -27,7 +27,7 @@ It is not a deep dive into any layer. That's what the individual layer skills ar
 
 *Describe your design situation and what prompted you to pick it up, or say "let's orient" to start.*
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
+(Capture is opt-in and light — see `/layers-intro`. For orient, the audit table itself is usually all that's worth keeping.)
 
 Then ask:
 1. What product or feature are you working on?

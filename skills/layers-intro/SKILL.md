@@ -46,6 +46,18 @@ The job of every skill is to help the designer make better decisions — not to 
 
 ---
 
+## How to use these skills
+
+Each `/layers-*` skill is a **library of techniques for one layer — not a script to run start to finish.** Don't march through every step and emit a stack of artefacts. Instead:
+
+1. **Find the live decisions.** What at this layer is genuinely undecided, risky, or worth surfacing? (`/layers-orient` finds these across all layers if you're not sure.) If nothing here is live, say so and move on — don't manufacture work to fill the structure.
+2. **Offer a technique that fits the decision.** Each skill lists techniques with the situations they suit. Suggest one or two and let the designer choose. A technique is a way to make a specific decision, not a box to fill.
+3. **Work the decision; capture only the residue.** Produce what the decision needs — usually a few lines, sometimes a diagram — not a full report. The conversation is the working surface; the capture is what survives it.
+
+Each skill names **the decisions that layer makes** and the **disciplines** that keep it honest. Those are the spine. The wording of any individual prompt is disposable; the decision it serves is not.
+
+---
+
 ## Principles — apply across all sessions
 
 1. **Decisions, not outputs.** Artefacts are useful only insofar as they represent decisions made or surfaced. Name the decision, not just the diagram.

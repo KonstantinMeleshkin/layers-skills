@@ -1,163 +1,70 @@
 ---
 name: layers-conceptual-model
-description: Defines the product's objects, relationships, states, and vocabulary independently of any interface — the most load-bearing layer
+description: Techniques for defining the product's objects, relationships, states, and vocabulary independently of any interface — the most load-bearing layer
 ---
 
 # /layers-conceptual-model
 
-*Assumes `/layers-intro` has been loaded for framework context.*
+*Assumes `/layers-intro` has been loaded. This skill is a library of techniques, not a script — see "How to use these skills" there.*
 
-The conceptual model is the most neglected load-bearing layer. It defines the objects the product recognises, their relationships, what states they can be in, and the vocabulary used for everything. It lives in the solution space: it is not a capture of users' existing mental models (which are contradictory and messy — that's the domain layer's job), but a deliberate design decision about how the product will model its domain.
+The conceptual model is the most neglected load-bearing layer. It defines the objects the product recognises, how they relate, what states they can be in, and the vocabulary for all of it — a deliberate decision about how the product models its domain, independent of any interface.
 
-**What it is — and isn't:**
-- A **design decision** that resolves the messy domain into a coherent, opinionated structure
-- **Not a database schema** — engineers make their own data decisions, but the gap between this model and what they build matters. A large, unexamined gap is both UX debt (users encounter a product that contradicts the model) and technical debt (the system is harder to evolve).
-- **Not a wireframe or flow** — no screens, no navigation. Those belong to the layers above.
-- **Not neutral** — every naming decision, every relationship boundary, every included or excluded object reflects a point of view.
+It is **not** the users' messy mental model (that's the domain layer), and **not** a database schema, wireframe, or flow. But the gap between this model and what engineers build matters: a large, unexamined gap is both UX debt (users meet a product that contradicts the model) and technical debt (the system is hard to evolve).
 
-**Decisions this layer needs to make:**
-- What objects will this product recognise, and what are their boundaries?
-- How do those objects relate to each other?
-- What can users do with each object?
-- What states can each object be in, and what transitions matter?
-- What is the product's vocabulary — one name per concept, chosen and committed to?
+---
 
-**Methods:**
+## The decisions this layer makes
 
-| Method | When |
+- What objects the product recognises, and where each object's boundary is
+- How those objects relate — cardinality, and named roles where an object plays several
+- What a user can do to or with each object
+- What states an object can be in, and which transitions matter
+- The product's vocabulary — one name per concept, one concept per name
+
+If none of these is genuinely open, you may not need this layer right now. Say so rather than working it for the sake of it.
+
+---
+
+## Disciplines — what keeps the model honest
+
+Apply these to whatever you produce, in any order. They are the high-value part of this layer.
+
+- **Real objects only.** A true object is *instanceable* (you can have many), *structured* (has its own attributes), and *useful* (the user cares about it in its own right). This catches two errors: an attribute promoted to an object, and — more often — **instances mistaken for objects**: "CAC" and "ROAS" aren't objects, they're instances of one object, **Metric**. When several nouns are of-a-kind, model the type as the object; the specific names are instances or values.
+- **Attributes that are really relationships.** If an attribute is just the name or ID of another object in the model, model it as a relationship — don't duplicate it.
+- **Name the role when an object plays several.** "belongs to one User (as referrer)", not "belongs to one User."
+- **No speculative additions.** Every object, attribute, action, and relationship should trace to a stated user need. Scope creep here propagates through every layer above.
+- **Verb precision.** Does a generic verb (Edit, Delete, Update) hide operations with different real-world consequences? "Edit address" conflates correcting a typo (overwrite is fine) with recording a house move (which should preserve history). When a generic verb could mean genuinely different things, name the operations separately — "Correct address" vs "Register change of address" isn't verbose, it's precise.
+- **Implementation is not design.** When talk drifts to how something is stored, generated, or computed, redirect to what the user can do and what happens to things that referenced it. Flag genuinely entangled questions for an engineering conversation rather than forcing a premature answer.
+
+---
+
+## Techniques
+
+Pick the one that fits the live decision — don't run them all.
+
+| Technique | Use it to |
 |---|---|
-| **Noun foraging + OOUX** (Sophia Prater) | Default when you have research or domain notes to mine. Extracts objects from naturalistic language. |
-| **Semantic IxD / action grammar** (Daniel Rosenberg) | When you have many actions across many objects and want to audit verb consistency and precision. |
-| **Event storming — commands/policies phase** (Brandolini) | Domain has complex processes. Start from what happens, work backwards to objects involved. |
+| **Noun foraging + OOUX** (Sophia Prater) | Extract objects from research or domain notes. The default when you have naturalistic language to mine. Sort nouns into objects / attributes / instances-or-values / set-aside (UI elements, vague abstractions, actions dressed as nouns), using the "real objects only" test above. |
+| **Object definition** | Pin down one object: what it is (one sentence, the user's view), its attributes, its relationships (cardinality + role names), and its actions. |
+| **Relational object map** (`erDiagram`) | See objects and relationships together and catch missing, reversed, or spurious connections. `\|\|`=exactly one, `o{`=zero-or-many, `\|{`=one-or-many; crow's foot on the many side; labels read first entity → second. |
+| **State transition diagram** (`stateDiagram-v2`) | For an object whose status changes what users can do — name the states, the transitions, and what each state forbids. |
+| **Action (CTA) inventory** | List every action a user can take, across all objects, in one place — the product's call-to-action vocabulary. Listing them together (not object by object) is what exposes inconsistency (Add vs Create vs New for one operation) and over-flattening (one verb hiding distinct operations). |
+| **Ubiquitous language list** | Resolve naming. For each contested concept: the chosen term, rejected alternatives, and why. One name per concept, one concept per name — in UI, help text, API names, and internal talk alike. |
+| **Semantic IxD / action grammar** (Rosenberg) | Audit verb consistency and precision across many actions and objects. |
+| **Event storming — commands/policies** (Brandolini) | Process-heavy domain: start from what happens, work back to the objects involved. |
 | **Card sorting** | Vocabulary is unclear or contested across users or teams. |
-| **DDD bounded context mapping** | Multiple user types use the same words differently — surfaces where the model has natural seams. |
-| **Walking the existing product** | Redesigning. The current UI reveals the implicit model — compare it to how users actually think. |
+| **Walking the existing product** | Redesign: the current UI reveals the implicit model — compare it to how users actually think. |
 
-Default: **noun foraging and object definition**.
-
-**Quality signals — what good looks like:**
-- Every object is independently meaningful to the user — not a UI element, not a vague abstraction
-- Relationship roles are explicitly named when an object can play multiple roles
-- Attributes that are really relationships have been challenged and converted
-- No speculative additions — every object, attribute, and relationship traces to a user need
-- State transitions are defined for objects whose status materially changes what users can do
-- Temporal decisions are addressed: deletion semantics, relationship temporality, history
-- Ubiquitous language is established: one name per concept, one concept per name
+Also probe the **temporal decisions** from `/layers-intro` — intermediate action states, read-model lag, relationship temporality, deletion semantics, history — for any object where they bite.
 
 ---
 
-## Guided session
+## Working with the designer
 
-*Tell me what product or feature you're defining a model for, or say "guide me" to start noun foraging and object definition.*
+Find which of the decisions above are live. Offer the technique that fits: noun foraging if there's material to mine, walking the product if redesigning, or straight to object definition if the objects are known and only their shape is open. Do the next useful thing, not the whole toolkit.
 
-Ask: *"Where should I capture the work from this session?"* (see `/layers-intro` for options)
+Capture only the residue — the object definitions that got settled, any diagram that encodes a real relationship or lifecycle, the vocabulary calls, and the open questions (objects that felt thin, decisions deferred to engineering). Don't write a report the designer won't reread.
 
-Check what the designer has from the problem space — domain notes, research, user needs. If nothing: proceed but flag that a model built without domain knowledge often reflects assumptions more than users' reality.
+If domain work hasn't been done, say plainly: this model is a hypothesis until there's evidence.
 
-If redesigning: *"Describe the current model, even informally — what implicit model does the existing product have?"*
-
----
-
-**Phase 1 — Frame the scope**
-
-1. What product or feature are we defining a conceptual model for?
-2. What's the core job users are trying to do with it?
-3. What material are you working from?
-
-**Phase 2 — Discover objects**
-
-*From research or domain notes:* Extract every noun — things, people, roles, documents, places, states, concepts, events. Cast wide; don't filter yet. Present the raw list, then ask: missing nouns? Same things with different names?
-
-*From an existing product:* Walk it together. *"What is a user looking at here? What is this thing called?"*
-
-*From first principles:* *"If a user could reach in and hand something to a colleague, what would they hand?"*
-
-Sort into:
-- **Objects** — things that persist, have their own attributes, and matter to the user in their own right
-- **Attributes** — properties that describe an object, not objects themselves
-- **Instances / values** — specific cases of an object type (note the type)
-- **Set aside** — UI elements, vague abstractions, actions dressed as nouns
-
-A true object is **instanceable** (you can have many), **structured** (has its own attributes), and **useful** (the user cares about it in its own right). This test catches two errors: an attribute promoted to an object, and — more often — **instances mistaken for objects**. "CAC" and "ROAS" aren't objects; they're instances of one object, Metric. When several nouns are of-a-kind, model the type as the object; the specific names are instances or values.
-
-**Phase 3 — Define each object**
-
-Work through each core object:
-
-```
-Object: [Name]
-What it is: [one sentence from the user's perspective]
-Attributes: [properties a user knows or cares about]
-Relationships: [connections to other objects — cardinality and role names]
-Actions (CTAs): [what a user can do to or with this object]
-```
-
-**Four discipline checks:**
-
-1. *Relationship roles:* When a relationship connects to an object that can play multiple roles (e.g. a User who is both referrer and referred), name the role explicitly: "belongs to one User (as referrer)" not "belongs to one User."
-
-2. *Attributes that are really relationships:* If an attribute is just the name or ID of another object in the model, it's a relationship — model it, don't duplicate it as an attribute.
-
-3. *No speculative additions:* Don't add attributes, relationships, or actions not grounded in a stated user need. Scope creep at the conceptual model layer propagates through every layer above.
-
-4. *Implementation vs. design decisions:* When conversation drifts to how something is generated, stored, or computed — redirect: *"How it's generated is engineering. What matters here: can a user change this? What happens to things that already referenced it?"*
-
-5. *Verb precision:* For each action, ask whether the verb tells the user what they'll end up with or what real-world operation they're performing. "Enter a PIN" fails because it implies the PIN already exists — "Create" is precise. More critically: check whether a generic verb (Edit, Delete, Update) is hiding operations with meaningfully different real-world consequences. "Edit address" conflates correcting a typo with recording a house move — two operations where one preserves history and one doesn't, requiring different system behaviour and different user intent. A **deductive** interface uses generic verbs and asks users to map their intent to them; an **inductive** interface names the real-world operation ("Register change of address") and preserves its meaning. When a generic verb could mean different things depending on what the user is actually trying to do, name the operations separately.
-
-**Phase 4 — Object map**
-
-Generate a relational object map: entities as nodes, relationships as labelled lines with cardinality markers. No fixed orientation — follow what makes the relationships most readable. In Mermaid: `erDiagram`.
-
-When presenting, explain cardinality: `||` = exactly one, `o{` = zero or many, `|{` = one or many. The crow's foot is always on the "many" side. Relationship labels read in the direction declared (first entity → second entity).
-
-Ask: *"Does this reflect how you think about these things? Relationships missing, directions reversed, connections that shouldn't be there?"*
-
-**Phase 5 — State transitions and temporal decisions**
-
-For each object where lifecycle or status matters: *"What states can a [Object] be in? What moves it between states? What becomes impossible in each state?"*
-
-Generate a state diagram: states as nodes, transitions as labelled arrows, with a clear start state. Top-to-bottom or left-to-right depending on the number of states. In Mermaid: `stateDiagram-v2`.
-
-Also probe temporal decisions (from `/layers-intro`): intermediate action states, read model lag, relationship temporality, deletion semantics, history. For implementation-entangled questions, don't force a premature answer — articulate the user experience requirement and flag as a named open question for an engineering conversation.
-
-**Phase 6 — Ubiquitous language**
-
-The ubiquitous language covers both nouns (objects, attributes) and verbs (actions). The same principle applies to both: one word per concept, one concept per word.
-
-**Nouns:** List every chosen object and attribute name. For any noun with synonyms or naming conflicts:
-
-```
-Term: [chosen name]
-Rejected alternatives: [other names that appeared]
-Decision: [why this term was chosen]
-```
-
-**Verbs — the action (CTA) inventory:** Compile every action a user can take into one list across all objects — this is the product's call-to-action inventory as well as its verb vocabulary. Listing them together, rather than object by object, is what makes inconsistency visible (it's how you catch "Add" on one object and "Create" and "New" on others for the same operation). Apply two tests:
-
-*Synonym check:* Are multiple verbs being used for the same operation? "Create" and "Add" for the same action type should be consolidated. Minimising the verb vocabulary reduces what users have to learn — the same verb working identically across all objects (like cut/copy/paste) means users learn once and transfer everywhere. Every synonym is a new thing to memorise.
-
-*Flattening check:* The opposite risk — one verb covering operations that are genuinely different. "Edit address" sounds simple until you realise it conflates two things: correcting a typo (overwrite is fine) and recording a house move (which should create a new record and preserve the old one). The domain treats these differently; the interface shouldn't hide that. For each generic CRUD verb (Edit, Delete, Update, Create), ask: could this cover operations with different real-world consequences — different history implications, different downstream effects, different things the user is actually trying to accomplish? If so, give them separate names. "Register change of address" and "Correct address" are not verbose — they're precise.
-
-```
-Verb: [chosen action name]
-Applies to: [which objects]
-Rejected alternatives: [other verbs considered]
-Decision: [why this verb; what real-world operation it names]
-```
-
-*"This is your product's ubiquitous language. Use these terms consistently — in the UI, in help text, in API names, in internal conversation. Every inconsistency between this model and the surface creates cognitive load for users."*
-
----
-
-### Completion
-
-Produce:
-1. **Object definitions** — attributes, relationships, and actions
-2. **Object map** — `erDiagram`
-3. **State transition diagrams** — for objects with meaningful lifecycles
-4. **Ubiquitous language** — chosen nouns and verbs with resolved conflicts and decisions
-5. **Open questions** — deferred decisions, objects that felt thin, anything flagged but unresolved
-
-Close with: *"The conceptual model defines what exists in this product. Next: design how users interact with those objects. Run `/layers-interaction-flow`."*
-
-If domain work hasn't been done: *"This model was built without domain research — it's a hypothesis. Plan to revisit it once you have evidence."*
+When the objects and actions are stable, the natural next move is to design how users move through them — `/layers-interaction-flow`.
